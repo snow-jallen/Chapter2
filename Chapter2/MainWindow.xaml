@@ -5,8 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chapter2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Window.DataContext>
+        <local:SampleDataContext />
+    </Window.DataContext>
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Type Converters">
+                <StackPanel>
+                    <TextBlock x:Name="txtTypeConverterExample" />
+                    <TextBlock Text="Sample Text"
+                               Background="Green" />
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Markup Extensions">
+                <StackPanel>
+                    <!-- Note the positional parameter and the named parameter -->
+                    <!-- <TextBlock Text="{Binding Path=NumberValue, StringFormat=n5}" /> -->
+                    <TextBlock Text="{Binding NumberValue, StringFormat=n5}" />
+                    <TextBlock Text="{}{These curly braces have been escaped}" />
+                    <TextBlock>
+                        <TextBlock.Text>
+                            {These curly braces have been escaped too}
+                        </TextBlock.Text>
+                    </TextBlock>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Content">
+                <StackPanel>
+                    <Button Content="OK" />
+                    <Button>
+                        OK
+                    </Button>
+                    <Button>
+                        <Button.Content>
+                            OK
+                        </Button.Content>
+                    </Button>
+                    <Button>
+                        <TextBlock Text="OK" />
+                    </Button>
+                    <TextBlock Text="XAML makes things nice because it has sensible defaults." />
+                    <ListBox>
+                        <ListBox.Items>
+                            <ListBoxItem Content="Item 1" />
+                            <ListBoxItem Content="Item 1" />
+                        </ListBox.Items>
+                    </ListBox>
+                    <ListBox>
+                        <ListBoxItem Content="Item 1" />
+                        <ListBoxItem Content="Item 1" />
+                    </ListBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Event Handlers">
+                <Button Content="Click me!" />
+            </TabItem>
+        </TabControl>        
     </Grid>
 </Window>
